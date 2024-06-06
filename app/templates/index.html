@@ -1,0 +1,364 @@
+<!-- app/templates/index.html -->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Evaluation</title>
+</head>
+<body>
+    <h1>LLM Evaluation</h1>
+    <form id="queryForm">
+        <input type="text" id="prompt" name="prompt" placeholder="Enter your query">
+        <button type="submit">Ask</button>
+    </form>
+    <div id="responses"></div>
+    <script>
+        document.getElementById('queryForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const prompt = document.getElementById('prompt').value;
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt })
+            });
+            const data = await response.json();
+            document.getElementById('responses').innerHTML = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            :root {
+  background: #f5f6fa;
+  color: #9c9c9c;
+  font: 1rem "PT Sans", sans-serif;
+}
+
+html,
+body,
+.container {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+}
+a:hover {
+  color: #7f8ff4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+.btn--primary {
+  background: #7f8ff4;
+  color: #fff;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 12px 36px;
+}
+.btn--primary:hover {
+  background: #6c7ff2;
+}
+.btn--primary:active {
+  background: #7f8ff4;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+.btn--inside {
+  margin-left: -96px;
+}
+
+.container__item--bottom{
+    color: black;
+    text-align: left;
+    width: 450px;
+}
+
+.form__field {
+  width: 360px;
+  background: #fff;
+  color: #a3a3a3;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+}
+
+
+.MainTitle{
+    color: #1b2560;
+    font-size: x-large;
+    text-align: center;
+}
+.SubTitle{
+    color: #6c7ff2;
+    font-size: large;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.output{
+    text-align: left;
+}
+        </style>
+        
+        
+    </head>
+
+    <body>
+        
+    <div class="container">
+        <div class="container__item">
+            <p class="MainTitle">
+                Large Language Model Evaluation Application
+            </p>
+            <p class="SubTitle">
+                PwC Internship Assignment
+            </p>
+          <form class="form" id="queryForm">
+            <input type="text" class="form__field" placeholder="Enter Your Question" id="prompt" name="prompt"/>
+            <button type="submit" class="btn btn--primary btn--inside uppercase">Send</button>
+          </form>
+        </div>
+        
+        <div class="container__item container__item--bottom">
+            <div ></div>
+          <p class="output" id="responses">Inspired by Daniel Luca.</p>
+          <script>
+            document.getElementById('queryForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const prompt = document.getElementById('prompt').value;
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ prompt })
+                });
+                const data = await response.json();
+                document.getElementById('responses').innerHTML = JSON.stringify(data, null, 2);
+            });
+            </script>
+        </div>
+      </div>
+</body>
+</html>
+<!--
+        <div class="container">
+            <div class="demo-flex-spacer"></div>
+            <div class="webflow-style-input">
+                <form id="queryForm">
+                    <input id="prompt" type="text" placeholder="What is your question?" name="prompt"></input>
+                    <button type="submit"><p class="Button">GO</p></button>
+                </form>
+            </div>
+            
+            <div id="responses"></div>
+            <script>
+            document.getElementById('queryForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const prompt = document.getElementById('prompt').value;
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ prompt })
+                });
+                const data = await response.json();
+                document.getElementById('responses').innerHTML = JSON.stringify(data, null, 2);
+            });
+            </script>
+
+            <div class="demo-flex-spacer"></div>
+            <h1 class="demo">PwC Assignment</h1>
+            
+
+        </div>
+    -->
+
+
+<!--<style>
+            html {
+                box-sizing: border-box;
+                font-size: 10px;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+            
+            body, ul, li {
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                list-style: none;
+            }
+            
+            p, h1, h2, h3, h4, h5, h6 {
+                margin-top: 0;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            input {
+                border-style: none;
+                background: transparent;
+                outline: none;
+            }
+            
+            button {
+                padding: 0;
+                background: none;
+                border: none;
+                outline: none;
+                margin: 0;
+                align-self: flex-start;
+                right:-10px;
+                position: relative;
+            }
+            
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+            }
+            
+            h1.demo {
+                text-align: center;
+                font-size: 2.4rem;
+                font-weight: normal;
+                margin-bottom: 1rem;
+                color: #f5f6ff;
+            }
+            
+            a.demo {
+                text-align: center;
+                font-size: 1.6rem;
+                font-weight: normal;
+                color: rgba(202, 205, 239, 0.8);
+                margin-bottom: 3rem;
+            }
+            
+            .Button{
+                color:#f5f6ff;
+                font-size: small;
+                margin: 0;
+                right:-10px;
+                position: relative;
+            }
+
+            .demo-flex-spacer {
+                flex-grow: 1;
+            }
+            
+            .container {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                max-width: 1600px;
+                padding: 0 15px;
+                margin: 0 auto;
+            }
+            
+            @-webkit-keyframes gradient {
+                0% {
+                    background-position: 0 0;
+                }
+                
+                100% {
+                    background-position: 100% 0;
+                }
+            }
+            
+            @keyframes gradient {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 100% 0;
+                }
+            }
+            .webflow-style-input {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                border-radius: 2px;
+                padding: 1.4rem 2rem 1.6rem;
+                background: rgba(57, 63, 84, 0.8);
+            }
+            
+            .webflow-style-input:after {
+                content: "";
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: 999;
+                height: 2px;
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                background-position: 0% 0%;
+                background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+                background-size: 500% auto;
+                -webkit-animation: gradient 3s linear infinite;
+                animation: gradient 3s linear infinite;
+            }
+            
+            .webflow-style-input input {
+                flex-grow: 1;
+                color: #BFD2FF;
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                vertical-align: middle;
+            }
+            .webflow-style-input input::-webkit-input-placeholder {
+                color: #7881A1;
+            }
+            
+            .webflow-style-input button {
+                color: #7881A1;
+                font-size: 2.4rem;
+                line-height: 2.4rem;
+                vertical-align: middle;
+                transition: color 0.25s;
+            }
+            .webflow-style-input button:hover {
+                color: #BFD2FF;
+            }
+        </style>-->
+
+
