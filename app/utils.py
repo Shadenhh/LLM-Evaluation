@@ -89,5 +89,21 @@
 #         responses[model] = response
 
 #     return responses
+from langchain.embeddings import OpenAIEmbeddings
+from pinecone import Pinecone, ServerlessSpec
+
+pc = Pinecone(api_key='b48026df-1663-47bc-b9e2-c3a92067af2e')
+index = pc.Index("pages1")
 def query_llms(input):
-    return "hi"
+    return getChatGPTAnswer(input)
+
+def getChatGPTAnswer(input):
+    embeddings_model = OpenAIEmbeddings(api_key="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")
+    embedded_query = embeddings_model.embed_query(input)
+    answer=index.query(
+        vector=embedded_query,
+        namespace="NewSpace",
+        top_k=2,
+        include_metadata=True,
+        )
+    return answer
